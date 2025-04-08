@@ -97,6 +97,9 @@ dependencies {
 
     implementation(libs.accompanist.systemuicontroller)
 
+    testImplementation(libs.mockk.v11317)
+
+
 }
 
 

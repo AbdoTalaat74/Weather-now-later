@@ -36,7 +36,6 @@ class CityInputRepositoryImpl @Inject constructor(
                         Result.Error(NetworkError.SERIALIZATION)
                     }
                 }
-
                 408 -> Result.Error(NetworkError.REQUEST_TIMEOUT)
 
                 429 -> Result.Error(NetworkError.TOO_MANY_REQUESTS)

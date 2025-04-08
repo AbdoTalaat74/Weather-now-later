@@ -1,8 +1,7 @@
 package com.example.cityinput.presentation
 
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.State
-import androidx.compose.runtime.mutableStateOf
+import android.util.Log
+
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -21,15 +20,17 @@ class CityInputViewModel @Inject constructor(
 ) : ViewModel() {
 
 
-    private var _query: MutableState<String> = mutableStateOf("")
-    val query: State<String> = _query
+    private var _query = MutableStateFlow("")
+    val query: StateFlow<String> = _query
     private val _cachedCurrentWeatherState = MutableStateFlow(CurrentWeatherState())
     val cachedCurrentWeatherState: StateFlow<CurrentWeatherState> = _cachedCurrentWeatherState
     private val coroutineExceptionHandler = CoroutineExceptionHandler { _, throwable ->
         throwable.printStackTrace()
     }
 
-
+    fun updateCashedCityWeather() {
+        getCachedCityWeather()
+    }
 
 
     init {
@@ -37,8 +38,11 @@ class CityInputViewModel @Inject constructor(
     }
 
 
+
+
     fun updateQuery(newQuery: String) {
         _query.value = newQuery
+        Log.e("updateQueryLog",_query.value)
     }
 
     private fun getCachedCityWeather() {

@@ -58,6 +58,19 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.7.0")
+    testImplementation("org.mockito:mockito-core:3.11.2")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:4.0.0")
+// For Kotlin support
+    testImplementation("androidx.arch.core:core-testing:2.1.0")
+// For LiveData/StateFlow testing
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.0")
+// For coroutines testing
+
+
+
     //retrofit
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
