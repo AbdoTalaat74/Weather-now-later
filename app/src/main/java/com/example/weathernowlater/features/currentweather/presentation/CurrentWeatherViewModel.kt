@@ -42,8 +42,9 @@ class CurrentWeatherViewModel @Inject constructor(
                     _currentWeatherState.value = _currentWeatherState.value.copy(
                         weather = result.data
                     )
-                }
+                    cityWeatherUseCases.insertCityWeather(result.data)
 
+                }
 
             }
 
