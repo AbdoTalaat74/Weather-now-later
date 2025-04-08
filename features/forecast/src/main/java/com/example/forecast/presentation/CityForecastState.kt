@@ -1,4 +1,4 @@
-package com.example.weathernowlater.features.forecast.presentation
+package com.example.forecast.presentation
 
 import com.example.core.util.network.NetworkError
 import com.example.core.model.CityForecast

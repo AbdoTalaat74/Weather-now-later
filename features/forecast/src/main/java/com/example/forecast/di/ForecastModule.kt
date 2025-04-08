@@ -1,9 +1,9 @@
-package com.example.weathernowlater.features.forecast.di
+package com.example.forecast.di
 
 import com.example.data.remote.WeatherApi
 import com.example.data.repository.ForecastRepositoryImpl
 import com.example.core.repo.ForecastRepository
-import com.example.weathernowlater.features.forecast.domain.usecase.ForecastUseCase
+import com.example.forecast.domain.usecase.ForecastUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

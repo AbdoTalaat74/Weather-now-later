@@ -1,4 +1,4 @@
-package com.example.weathernowlater.features.cityinput.presentation
+package com.example.cityinput.presentation
 
 
 import androidx.compose.foundation.layout.Column
@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.core.ui.WeatherDetailView
 import com.example.core.ui.WeatherSearchBar
-import com.example.weathernowlater.features.currentweather.presentation.CurrentWeatherState
+import com.example.currentweather.presentation.CurrentWeatherState
 
 
 @Composable
@@ -36,9 +36,9 @@ fun CityInputScreen(
 
         currentWeatherState.weather?.weatherType?.let {
             WeatherDetailView(
-                currentWeatherState.weather.cityName,
+                currentWeatherState.weather!!.cityName,
                 it.iconRes,
-                currentWeatherState.weather.temp,
+                currentWeatherState.weather!!.temp,
                 it.weatherDesc
             )
         }

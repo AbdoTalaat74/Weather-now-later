@@ -18,18 +18,18 @@ import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.rememberNavController
 import com.example.weathernowlater.app.ui.theme.WeatherNowLaterTheme
-import com.example.weathernowlater.features.cityinput.presentation.CityInputScreen
-import com.example.weathernowlater.features.cityinput.presentation.CityInputViewModel
-import com.example.weathernowlater.features.currentweather.presentation.CurrentWeatherViewModel
+import com.example.currentweather.presentation.CurrentWeatherViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.serialization.Serializable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.cityinput.presentation.CityInputScreen
+import com.example.cityinput.presentation.CityInputViewModel
 import com.example.weathernowlater.app.ui.theme.LightBlue
 import com.example.weathernowlater.app.ui.theme.MidnightBlue
-import com.example.weathernowlater.features.currentweather.presentation.CurrentWeatherScreen
-import com.example.weathernowlater.features.forecast.presentation.ForecastIntent
-import com.example.weathernowlater.features.forecast.presentation.ForecastListViewModel
+import com.example.currentweather.presentation.CurrentWeatherScreen
+import com.example.forecast.presentation.ForecastIntent
+import com.example.forecast.presentation.ForecastListViewModel
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {

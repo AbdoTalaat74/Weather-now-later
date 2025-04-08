@@ -1,4 +1,4 @@
-package com.example.weathernowlater.features.forecast.presentation
+package com.example.forecast.presentation
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyRow

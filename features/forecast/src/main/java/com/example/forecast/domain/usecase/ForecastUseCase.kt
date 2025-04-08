@@ -1,4 +1,4 @@
-package com.example.weathernowlater.features.forecast.domain.usecase
+package com.example.forecast.domain.usecase
 
 import com.example.core.repo.ForecastRepository
 import javax.inject.Inject

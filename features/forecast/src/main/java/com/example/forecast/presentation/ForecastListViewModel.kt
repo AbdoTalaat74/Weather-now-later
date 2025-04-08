@@ -1,10 +1,10 @@
-package com.example.weathernowlater.features.forecast.presentation
+package com.example.forecast.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.core.util.network.NetworkError
 import com.example.core.util.network.Result
-import com.example.weathernowlater.features.forecast.domain.usecase.ForecastUseCase
+import com.example.forecast.domain.usecase.ForecastUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers

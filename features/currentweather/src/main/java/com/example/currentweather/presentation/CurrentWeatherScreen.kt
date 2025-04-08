@@ -1,4 +1,4 @@
-package com.example.weathernowlater.features.currentweather.presentation
+package com.example.currentweather.presentation
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -9,8 +9,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.core.ui.WeatherDetailView
-import com.example.weathernowlater.features.forecast.presentation.CityForecastState
-import com.example.weathernowlater.features.forecast.presentation.ForecastList
+import com.example.forecast.presentation.CityForecastState
+import com.example.forecast.presentation.ForecastList
+
 
 @Composable
 fun CurrentWeatherScreen(

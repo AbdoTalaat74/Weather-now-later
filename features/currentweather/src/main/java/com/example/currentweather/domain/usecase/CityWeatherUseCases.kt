@@ -1,4 +1,4 @@
-package com.example.weathernowlater.features.currentweather.domain.usecase
+package com.example.currentweather.domain.usecase
 
 import com.example.core.model.DayCityWeather
 import com.example.core.repo.CityInputRepository
