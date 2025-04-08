@@ -91,6 +91,9 @@ dependencies {
     testImplementation("org.mockito:mockito-inline:3.11.2")
     testImplementation(kotlin("test"))
 
+    implementation(libs.weather.formatter) //TODO Libraries & Artifactory
+
+
 }
 
 kapt {
