@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.weathernowlater.core.ui.WeatherDetailView
+import com.example.core.ui.WeatherDetailView
 import com.example.weathernowlater.features.forecast.presentation.CityForecastState
 import com.example.weathernowlater.features.forecast.presentation.ForecastList
 

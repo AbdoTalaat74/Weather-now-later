@@ -1,4 +1,4 @@
-package com.example.weathernowlater.core.util.weather
+package com.example.core.util.weather
 
 import java.text.DecimalFormat
 

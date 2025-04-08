@@ -2,7 +2,6 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
-      <module name="Weather_Now_&amp;_Later.core" target="21" />
       <module name="Weather_Now_&amp;_Later.data" target="21" />
       <module name="Weather_Now_&amp;_Later.features" target="21" />
       <module name="Weather_Now_&amp;_Later.features._currentweather" target="21" />

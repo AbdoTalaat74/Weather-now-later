@@ -2,7 +2,7 @@ package com.example.weathernowlater.features.currentweather.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.weathernowlater.core.util.network.Result
+import com.example.core.util.network.Result
 import com.example.weathernowlater.features.currentweather.domain.usecase.CityWeatherUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineExceptionHandler

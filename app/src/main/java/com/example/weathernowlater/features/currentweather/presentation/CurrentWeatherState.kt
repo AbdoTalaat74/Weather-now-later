@@ -1,6 +1,6 @@
 package com.example.weathernowlater.features.currentweather.presentation
 
-import com.example.weathernowlater.core.util.network.NetworkError
+import com.example.core.util.network.NetworkError
 import com.example.weathernowlater.features.currentweather.domain.model.DayCityWeather
 
 data class CurrentWeatherState(

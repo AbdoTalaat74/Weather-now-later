@@ -1,4 +1,4 @@
-package com.example.weathernowlater.core.ui
+package com.example.core.ui
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
@@ -14,7 +14,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.weathernowlater.core.util.weather.WeatherFormatter.formatTemperature
+import com.example.core.util.weather.WeatherFormatter.formatTemperature
 
 @Composable
 fun WeatherDetailView(

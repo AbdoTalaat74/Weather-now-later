@@ -1,6 +1,4 @@
-package com.example.weathernowlater.core.util.network
-
-import com.example.mealzapp.meals.domain.util.Error
+package com.example.core.util.network
 
 typealias DomainError = Error
 

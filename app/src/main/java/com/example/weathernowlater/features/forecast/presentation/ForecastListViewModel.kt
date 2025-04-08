@@ -2,8 +2,8 @@ package com.example.weathernowlater.features.forecast.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.weathernowlater.core.util.network.NetworkError
-import com.example.weathernowlater.core.util.network.Result
+import com.example.core.util.network.NetworkError
+import com.example.core.util.network.Result
 import com.example.weathernowlater.features.forecast.domain.usecase.ForecastUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineExceptionHandler

@@ -1,7 +1,7 @@
 package com.example.weathernowlater.data.repository
 
-import com.example.weathernowlater.core.util.network.NetworkError
-import com.example.weathernowlater.core.util.network.Result
+import com.example.core.util.network.NetworkError
+import com.example.core.util.network.Result
 import com.example.weathernowlater.data.remote.WeatherApi
 import com.example.weathernowlater.data.remote.toCityForecast
 import com.example.weathernowlater.features.forecast.domain.model.CityForecast

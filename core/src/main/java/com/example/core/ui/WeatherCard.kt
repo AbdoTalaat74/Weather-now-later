@@ -1,4 +1,4 @@
-package com.example.weathernowlater.core.ui
+package com.example.core.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -23,7 +23,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
-import com.example.weathernowlater.core.util.weather.WeatherFormatter.formatTemperature
+import com.example.core.util.weather.WeatherFormatter.formatTemperature
 
 @Composable
 fun WeatherCard(

@@ -1,4 +1,4 @@
-package com.example.weathernowlater.core.ui
+package com.example.core.ui
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable

@@ -1,8 +1,11 @@
-package com.example.weathernowlater.core.util.weather
+package com.example.core.util.weather
+
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 fun formatDateSimple(dateTime: String): String {
-    val inputFormat = java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss", java.util.Locale.ENGLISH)
-    val outputFormat = java.text.SimpleDateFormat("d MMMM", java.util.Locale.ENGLISH)
+    val inputFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH)
+    val outputFormat = SimpleDateFormat("d MMMM", Locale.ENGLISH)
 
     return try {
         val date = inputFormat.parse(dateTime)

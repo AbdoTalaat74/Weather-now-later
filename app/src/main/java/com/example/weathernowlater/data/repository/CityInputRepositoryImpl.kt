@@ -1,12 +1,12 @@
 package com.example.weathernowlater.data.repository
 
-import com.example.weathernowlater.core.util.network.NetworkError
+import com.example.core.util.network.NetworkError
 import com.example.weathernowlater.data.remote.WeatherApi
 import java.io.IOException
 import java.net.SocketTimeoutException
 import javax.inject.Inject
 
-import com.example.weathernowlater.core.util.network.Result
+import com.example.core.util.network.Result
 import com.example.weathernowlater.data.local.WeatherDao
 import com.example.weathernowlater.data.remote.toDayCityWeather
 import com.example.weathernowlater.features.currentweather.domain.model.DayCityWeather

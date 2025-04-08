@@ -5,8 +5,8 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.example.weathernowlater.core.ui.WeatherCard
-import com.example.weathernowlater.core.util.weather.formatDateSimple
+import com.example.core.ui.WeatherCard
+import com.example.core.util.weather.formatDateSimple
 
 @Composable
 fun ForecastList(state: CityForecastState) {
