@@ -25,21 +25,6 @@ import javax.inject.Singleton
 class DataModule {
 
 
-    @Provides
-    @Singleton
-    fun provideForecastUseCase(
-        repository: ForecastRepository
-    ): ForecastUseCase {
-        return ForecastUseCase(repository)
-    }
-
-    @Provides
-    @Singleton
-    fun providesForecastRepository(
-        weatherApi: WeatherApi
-    ): ForecastRepository {
-        return ForecastRepositoryImpl(weatherApi)
-    }
 
 
     @Provides
@@ -64,10 +49,6 @@ class DataModule {
     ) = weatherDatabase.weatherDao
 
 
-    @Provides
-    fun provideWeatherTypeConverter(): WeatherTypeTC {
-        return WeatherTypeTC()
-    }
 
 
     @Provides
@@ -81,24 +62,6 @@ class DataModule {
     }
 
 
-    @Provides
-    @Singleton
-    fun provideGetCityWeatherUseCase(repository: CityInputRepository): CityWeatherUseCases {
-        return CityWeatherUseCases(repository)
-    }
-
-
-    @Provides
-    @Singleton
-    fun provideCityInputRepository(
-        weatherApi: WeatherApi,
-        weatherDao: WeatherDao
-    ): CityInputRepository {
-        return CityInputRepositoryImpl(
-            weatherApi = weatherApi,
-            weatherDao = weatherDao
-        )
-    }
 
 
 }
