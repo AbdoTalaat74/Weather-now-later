@@ -1,7 +1,7 @@
-package com.example.weathernowlater.features.currentweather.domain.model
+package com.example.core.model
 
 import androidx.annotation.DrawableRes
-import com.example.weathernowlater.R
+import com.example.core.R
 
 sealed class WeatherType(
     val weatherDesc: String,

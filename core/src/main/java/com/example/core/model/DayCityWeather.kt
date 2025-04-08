@@ -1,9 +1,8 @@
-package com.example.weathernowlater.features.currentweather.domain.model
+package com.example.core.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
-import com.example.weathernowlater.data.local.WeatherTypeTC
 
 @Entity(tableName = "city_weather")
 @TypeConverters(WeatherTypeTC::class)

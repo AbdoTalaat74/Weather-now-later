@@ -1,4 +1,4 @@
-package com.example.weathernowlater.features.forecast.domain.model
+package com.example.core.model
 
 data class CityForecast(
     val cityName: String,

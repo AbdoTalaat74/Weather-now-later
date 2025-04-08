@@ -1,8 +1,8 @@
-package com.example.weathernowlater.features.currentweather.domain.repository
+package com.example.core.repo
 
+import com.example.core.model.DayCityWeather
 import com.example.core.util.network.NetworkError
 import com.example.core.util.network.Result
-import com.example.weathernowlater.features.currentweather.domain.model.DayCityWeather
 
 interface CityInputRepository {
 

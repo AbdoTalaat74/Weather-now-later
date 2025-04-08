@@ -1,17 +1,10 @@
-package com.example.weathernowlater.data.di
+package com.example.data.di
 
 import android.app.Application
 import androidx.room.Room
-import com.example.weathernowlater.data.local.WeatherDao
-import com.example.weathernowlater.data.local.WeatherDatabase
-import com.example.weathernowlater.data.local.WeatherTypeTC
-import com.example.weathernowlater.data.remote.WeatherApi
-import com.example.weathernowlater.data.repository.CityInputRepositoryImpl
-import com.example.weathernowlater.data.repository.ForecastRepositoryImpl
-import com.example.weathernowlater.features.currentweather.domain.repository.CityInputRepository
-import com.example.weathernowlater.features.currentweather.domain.usecase.CityWeatherUseCases
-import com.example.weathernowlater.features.forecast.domain.repository.ForecastRepository
-import com.example.weathernowlater.features.forecast.domain.usecase.ForecastUseCase
+import com.example.data.local.WeatherDatabase
+import com.example.core.model.WeatherTypeTC
+import com.example.data.remote.WeatherApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

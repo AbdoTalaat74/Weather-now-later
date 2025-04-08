@@ -1,6 +1,6 @@
 package com.example.weathernowlater.features.forecast.domain.usecase
 
-import com.example.weathernowlater.features.forecast.domain.repository.ForecastRepository
+import com.example.core.repo.ForecastRepository
 import javax.inject.Inject
 
 class ForecastUseCase @Inject constructor(

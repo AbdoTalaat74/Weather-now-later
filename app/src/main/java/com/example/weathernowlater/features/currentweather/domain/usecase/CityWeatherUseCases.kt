@@ -1,7 +1,7 @@
 package com.example.weathernowlater.features.currentweather.domain.usecase
 
-import com.example.weathernowlater.features.currentweather.domain.model.DayCityWeather
-import com.example.weathernowlater.features.currentweather.domain.repository.CityInputRepository
+import com.example.core.model.DayCityWeather
+import com.example.core.repo.CityInputRepository
 import javax.inject.Inject
 
 class CityWeatherUseCases @Inject() constructor(

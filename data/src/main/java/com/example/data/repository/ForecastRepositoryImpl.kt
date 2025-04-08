@@ -1,24 +1,19 @@
-package com.example.weathernowlater.data.repository
+package com.example.data.repository
 
 import com.example.core.util.network.NetworkError
-import com.example.weathernowlater.data.remote.WeatherApi
+import com.example.core.util.network.Result
+import com.example.data.remote.WeatherApi
+import com.example.data.remote.toCityForecast
+import com.example.core.model.CityForecast
 import java.io.IOException
 import java.net.SocketTimeoutException
 import javax.inject.Inject
+import com.example.core.repo.ForecastRepository
 
-import com.example.core.util.network.Result
-import com.example.weathernowlater.data.local.WeatherDao
-import com.example.weathernowlater.data.remote.toDayCityWeather
-import com.example.weathernowlater.features.currentweather.domain.model.DayCityWeather
-import com.example.weathernowlater.features.currentweather.domain.repository.CityInputRepository
-
-class CityInputRepositoryImpl @Inject constructor(
-    private val weatherApi: WeatherApi,
-    private val weatherDao: WeatherDao
-) : CityInputRepository {
-
-
-    override suspend fun getCurrentWeather(cityName: String): Result<DayCityWeather, NetworkError> {
+class ForecastRepositoryImpl @Inject constructor(
+    private val weatherApi: WeatherApi
+): ForecastRepository {
+    override suspend fun getCityForecast(cityName: String): Result<CityForecast, NetworkError> {
         return try {
             val categoriesResult = weatherApi.getCityWeather(
                 cityName = cityName,
@@ -28,8 +23,7 @@ class CityInputRepositoryImpl @Inject constructor(
                     try {
                         val body = categoriesResult.body()
                         if (body != null) {
-                            Result.Success(body.toDayCityWeather())
-
+                            Result.Success(body.toCityForecast())
                         } else {
                             Result.Error(NetworkError.SERIALIZATION)
                         }
@@ -37,7 +31,6 @@ class CityInputRepositoryImpl @Inject constructor(
                         Result.Error(NetworkError.SERIALIZATION)
                     }
                 }
-
                 408 -> Result.Error(NetworkError.REQUEST_TIMEOUT)
 
                 429 -> Result.Error(NetworkError.TOO_MANY_REQUESTS)
@@ -53,15 +46,5 @@ class CityInputRepositoryImpl @Inject constructor(
         } catch (e: Exception) {
             Result.Error(NetworkError.UNKNOWN_ERROR)
         }
-    }
-
-    override suspend fun insertCityWeather(dayCityWeather: DayCityWeather) {
-
-        weatherDao.insertWeather(dayCityWeather)
-
-    }
-
-    override suspend fun getCityWitherFromDataBase(): DayCityWeather? {
-        return weatherDao.getLastWeather()
     }
 }

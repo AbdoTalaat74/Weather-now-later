@@ -1,10 +1,10 @@
 package com.example.weathernowlater.features.currentweather.di
 
-import com.example.weathernowlater.data.local.WeatherDao
-import com.example.weathernowlater.data.local.WeatherTypeTC
-import com.example.weathernowlater.data.remote.WeatherApi
-import com.example.weathernowlater.data.repository.CityInputRepositoryImpl
-import com.example.weathernowlater.features.currentweather.domain.repository.CityInputRepository
+import com.example.data.local.WeatherDao
+import com.example.core.model.WeatherTypeTC
+import com.example.data.remote.WeatherApi
+import com.example.data.repository.CityInputRepositoryImpl
+import com.example.core.repo.CityInputRepository
 import com.example.weathernowlater.features.currentweather.domain.usecase.CityWeatherUseCases
 import dagger.Module
 import dagger.Provides

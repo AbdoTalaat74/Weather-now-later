@@ -1,8 +1,7 @@
-package com.example.weathernowlater.data.local
+package com.example.core.model
 
 import androidx.room.ProvidedTypeConverter
 import androidx.room.TypeConverter
-import com.example.weathernowlater.features.currentweather.domain.model.WeatherType
 
 @ProvidedTypeConverter
 class WeatherTypeTC {

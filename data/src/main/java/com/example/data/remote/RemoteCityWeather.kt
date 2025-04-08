@@ -1,9 +1,9 @@
-package com.example.weathernowlater.data.remote
+package com.example.data.remote
 
-import com.example.weathernowlater.features.currentweather.domain.model.DayCityWeather
-import com.example.weathernowlater.features.currentweather.domain.model.WeatherType.Companion.fromWMO
-import com.example.weathernowlater.features.forecast.domain.model.CityForecast
-import com.example.weathernowlater.features.forecast.domain.model.DayForecast
+import com.example.core.model.CityForecast
+import com.example.core.model.DayForecast
+import com.example.core.model.DayCityWeather
+import com.example.core.model.WeatherType.Companion.fromWMO
 
 data class RemoteCityWeather(
     val city: City,
