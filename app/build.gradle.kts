@@ -5,6 +5,9 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
+    alias(libs.plugins.serialization)
+    id("kotlin-parcelize")
+
 }
 
 android {
@@ -70,11 +73,26 @@ dependencies {
     implementation(libs.androidx.hilt.work)
     implementation(libs.androidx.hilt.navigation.compose)
 
+    //coil
+    implementation(libs.coil.compose)
 
+    //room
+    implementation(libs.androidx.room.runtime )  // Room runtime library
+    annotationProcessor(libs.androidx.room.compiler) // For annotation processing
 
+    //noinspection KaptUsageInsteadOfKsp
+    kapt(libs.androidx.room.compiler) // Kotlin code generation (if you're using Kotlin)
 
+    implementation(libs.androidx.room.ktx)  // Kotlin extensions for coroutines (recommended)
+
+    implementation(libs.kotlinx.serialization.json)
+
+    implementation (libs.androidx.navigation.compose)
+
+    implementation(libs.accompanist.systemuicontroller)
 
 }
+
 
 kapt {
     correctErrorTypes = true

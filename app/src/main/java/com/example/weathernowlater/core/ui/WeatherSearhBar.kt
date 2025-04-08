@@ -1,5 +1,6 @@
 package com.example.weathernowlater.core.ui
 
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -27,7 +28,7 @@ fun WeatherSearchBar(
     onQueryChanged: (String) -> Unit,
     modifier: Modifier = Modifier,
     onClearClick: () -> Unit = {},
-    onSearchClick:() -> Unit,
+    onSearchClick:()-> Unit,
     placeholder: String = "Search city..."
 ) {
     TextField(
@@ -37,25 +38,27 @@ fun WeatherSearchBar(
             .fillMaxWidth()
             .height(56.dp)
             .padding(horizontal = 16.dp)
-            .clip(RoundedCornerShape(30.dp)),
+            .clip(RoundedCornerShape(30.dp))
+            .border(width = 1.dp, color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.3f), shape =RoundedCornerShape(30.dp)),
+
         textStyle = TextStyle(
-            color = MaterialTheme.colorScheme.surface,
+            color = MaterialTheme.colorScheme.onSurface,
             fontSize = 16.sp
         ),
         placeholder = {
             Text(
                 text = placeholder,
-                color = MaterialTheme.colorScheme.surface.copy(alpha = 0.5f)
+                color = MaterialTheme.colorScheme.onSurface
             )
         },
         leadingIcon = {
             Icon(
-                imageVector = Icons.Default.Search,
-                contentDescription = "Search icon",
-                tint = MaterialTheme.colorScheme.surface.copy(alpha = 0.7f),
                 modifier = Modifier.clickable{
                     onSearchClick()
-                }
+                },
+                imageVector = Icons.Default.Search,
+                contentDescription = "Search icon",
+                tint = MaterialTheme.colorScheme.onSurface,
             )
         },
         trailingIcon = {
@@ -64,23 +67,23 @@ fun WeatherSearchBar(
                     Icon(
                         imageVector = Icons.Default.Close,
                         contentDescription = "Clear icon",
-                        tint = MaterialTheme.colorScheme.surface.copy(alpha = 0.7f)
+                        tint = MaterialTheme.colorScheme.onSurface
                     )
                 }
             }
         },
         singleLine = true,
         colors = TextFieldDefaults.colors(
-            focusedContainerColor = MaterialTheme.colorScheme.onSurface,
-            unfocusedContainerColor = MaterialTheme.colorScheme.onSurface,
+            focusedContainerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.7f),
+            unfocusedContainerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.7f),
             focusedIndicatorColor = Color.Transparent,
             unfocusedIndicatorColor = Color.Transparent,
             disabledIndicatorColor = Color.Transparent,
             focusedTextColor = MaterialTheme.colorScheme.onSurface,
-            unfocusedTextColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.8f),
+            unfocusedTextColor = MaterialTheme.colorScheme.onSurface,
             cursorColor = MaterialTheme.colorScheme.primary,
             focusedLeadingIconColor = MaterialTheme.colorScheme.primary,
-            unfocusedLeadingIconColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f)
+            unfocusedLeadingIconColor = MaterialTheme.colorScheme.onSurface
         )
     )
 }

@@ -1,10 +1,12 @@
 package com.example.weathernowlater.features.cityinput.presentation
 
-import android.util.Log
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.State
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.weathernowlater.core.util.network.Result
-import com.example.weathernowlater.features.cityinput.domain.usecase.GetCityWeatherUseCase
+import com.example.weathernowlater.features.currentweather.domain.usecase.CityWeatherUseCases
+import com.example.weathernowlater.features.currentweather.presentation.CurrentWeatherState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
@@ -15,45 +17,38 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CityInputViewModel @Inject constructor(
-    private val getCityWeatherUseCase: GetCityWeatherUseCase,
+    private val cityWeatherUseCases: CityWeatherUseCases,
 ) : ViewModel() {
 
-    private val _weatherState = MutableStateFlow(WeatherState())
-    val weatherState: StateFlow<WeatherState> get() = _weatherState
 
+    private var _query: MutableState<String> = mutableStateOf("")
+    val query: State<String> = _query
+    private val _cachedCurrentWeatherState = MutableStateFlow(CurrentWeatherState())
+    val cachedCurrentWeatherState: StateFlow<CurrentWeatherState> = _cachedCurrentWeatherState
     private val coroutineExceptionHandler = CoroutineExceptionHandler { _, throwable ->
         throwable.printStackTrace()
     }
 
 
-    init {
 
+
+    init {
+        getCachedCityWeather()
     }
 
 
-    fun getCityWeatherByName(cityName: String) {
+    fun updateQuery(newQuery: String) {
+        _query.value = newQuery
+    }
+
+    private fun getCachedCityWeather() {
         viewModelScope.launch(Dispatchers.IO + coroutineExceptionHandler) {
-            _weatherState.value = WeatherState(isLoading = true)
-            val result = getCityWeatherUseCase(cityName)
-            when (result) {
-                is Result.Error -> {
-                    _weatherState.value =
-                        WeatherState(isLoading = false, error = result.error)
-                    Log.e("CityInputViewModelLog", "${result.error}")
-                }
-
-                is Result.Success -> {
-                    val domainDayWeather = result.data
-                    _weatherState.value = WeatherState(
-                        isLoading = false,
-                        weather = domainDayWeather
-                    )
-                    Log.e("CityInputViewModelLog", result.data.weatherType.weatherDesc)
-
-                }
+            val cachedCityWeather = cityWeatherUseCases.getCachedCityWeather()
+            if (cachedCityWeather != null) {
+                _cachedCurrentWeatherState.value = CurrentWeatherState(weather = cachedCityWeather)
             }
         }
-    }
 
+    }
 
 }
