@@ -17,7 +17,6 @@
             <option value="$PROJECT_DIR$/features/cityInput" />
             <option value="$PROJECT_DIR$/features/currentweather" />
             <option value="$PROJECT_DIR$/features/forecast" />
-            <option value="$PROJECT_DIR$/weather-formatte" />
           </set>
         </option>
       </GradleProjectSettings>

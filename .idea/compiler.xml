@@ -4,6 +4,9 @@
     <bytecodeTargetLevel>
       <module name="Weather_Now_&amp;_Later.features._currentweather" target="21" />
       <module name="Weather_Now_&amp;_Later.features.cityinput" target="21" />
+      <module name="Weather_Now_&amp;_Later.weather-formatte" target="17" />
+      <module name="Weather_Now_&amp;_Later.weather-formatte.main" target="17" />
+      <module name="Weather_Now_&amp;_Later.weather-formatte.test" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>

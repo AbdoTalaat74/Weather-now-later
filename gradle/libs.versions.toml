@@ -5,7 +5,6 @@ agp = "8.9.1"
 coilCompose = "2.7.0"
 converterGson = "2.11.0"
 hiltCompiler = "2.51.1"
-hiltNavigationCompose = "1.2.0"
 hiltLifecycleViewmodel = "1.0.0"
 kotlin = "2.0.21"
 coreKtx = "1.10.1"
@@ -15,11 +14,6 @@ espressoCore = "3.5.1"
 lifecycleRuntimeKtx = "2.6.1"
 activityCompose = "1.8.0"
 composeBom = "2024.09.00"
-appcompat = "1.6.1"
-material = "1.10.0"
-mockk = "1.13.13"
-mockkAgent = "1.13.17"
-mockkAndroid = "1.13.17"
 mockkVersion = "1.13.17"
 retrofit = "2.11.0"
 roomKtx = "2.6.1"
@@ -28,7 +22,6 @@ roomCompiler = "2.6.1"
 navigationCompose = "2.8.5"
 serialization = "1.6.3"
 jetbrainsKotlinJvm = "2.0.21"
-weatherFormatter = "1.0.0"
 
 
 [libraries]
@@ -57,15 +50,9 @@ androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-toolin
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
-androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
-mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
-mockk-android = { module = "io.mockk:mockk-android", version.ref = "mockkAndroid" }
-mockk-agent = { module = "io.mockk:mockk-agent", version.ref = "mockkAgent" }
 mockk-v11317 = { module = "io.mockk:mockk", version.ref = "mockkVersion" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization"}
-weather-formatter = { module = "com.example:weather-formatter", version.ref = "weatherFormatter" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
