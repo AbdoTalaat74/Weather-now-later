@@ -99,6 +99,7 @@ dependencies {
 
     testImplementation(libs.mockk.v11317)
 
+    implementation(libs.androidx.work.runtime.ktx)
 
 }
 

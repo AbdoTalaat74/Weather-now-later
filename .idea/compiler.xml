@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="21">
       <module name="Weather_Now_&amp;_Later.features._currentweather" target="21" />
       <module name="Weather_Now_&amp;_Later.features.cityinput" target="21" />
       <module name="Weather_Now_&amp;_Later.weather-formatte" target="17" />
