@@ -6,11 +6,11 @@ import com.example.data.remote.WeatherApi
 import java.io.IOException
 import java.net.SocketTimeoutException
 import javax.inject.Inject
-
 import com.example.core.util.network.Result
 import com.example.data.local.WeatherDao
 import com.example.data.remote.toDayCityWeather
 import com.example.core.repo.CityInputRepository
+
 class CityInputRepositoryImpl @Inject constructor(
     private val weatherApi: WeatherApi,
     private val weatherDao: WeatherDao
@@ -54,9 +54,7 @@ class CityInputRepositoryImpl @Inject constructor(
     }
 
     override suspend fun insertCityWeather(dayCityWeather: DayCityWeather) {
-
         weatherDao.insertWeather(dayCityWeather)
-
     }
 
     override suspend fun getCityWitherFromDataBase(): DayCityWeather? {

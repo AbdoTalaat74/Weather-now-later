@@ -3,7 +3,9 @@ package com.example.core.model
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
+import kotlinx.serialization.Serializable
 
+@Serializable
 @Entity(tableName = "city_weather")
 @TypeConverters(WeatherTypeTC::class)
 data class DayCityWeather(

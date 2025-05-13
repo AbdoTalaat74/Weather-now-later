@@ -2,7 +2,9 @@ package com.example.core.model
 
 import androidx.annotation.DrawableRes
 import com.example.core.R
+import kotlinx.serialization.Serializable
 
+@Serializable
 sealed class WeatherType(
     val weatherDesc: String,
     @DrawableRes val iconRes: Int

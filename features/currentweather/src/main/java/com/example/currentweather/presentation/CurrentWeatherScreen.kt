@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -20,9 +21,12 @@ fun CurrentWeatherScreen(
     cityForecastState: CityForecastState
 ) {
     Column(
-        modifier = modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
+        modifier = modifier
+            .fillMaxSize()
+            .padding(top = 32.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+
+        ) {
         currentWeatherState.weather?.weatherType?.let {
             WeatherDetailView(
                 currentWeatherState.weather.cityName,
@@ -32,7 +36,7 @@ fun CurrentWeatherScreen(
             )
         }
 
-        Spacer(modifier= Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(16.dp))
 
         ForecastList(cityForecastState)
     }

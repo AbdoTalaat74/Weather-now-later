@@ -1,18 +1,15 @@
 package com.example.weathernowlater.app
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -23,7 +20,6 @@ import androidx.navigation.compose.rememberNavController
 import com.example.cityinput.presentation.CityInputScreen
 import com.example.cityinput.presentation.CityInputViewModel
 import com.example.currentweather.presentation.CurrentWeatherScreen
-import com.example.currentweather.presentation.CurrentWeatherViewModel
 import com.example.forecast.presentation.ForecastListViewModel
 import com.example.forecast.presentation.ForecastIntent
 import com.example.weathernowlater.app.ui.theme.WeatherNowLaterTheme
@@ -34,7 +30,6 @@ import kotlinx.serialization.Serializable
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-    @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -61,23 +56,23 @@ class MainActivity : ComponentActivity() {
     fun WeatherAroundApp() {
         val navController = rememberNavController()
         val cityInputViewModel = hiltViewModel<CityInputViewModel>()
-        val currentWeatherViewModel = hiltViewModel<CurrentWeatherViewModel>()
         val forecastListViewModel = hiltViewModel<ForecastListViewModel>()
 
         val query by cityInputViewModel.query.collectAsState()
         val cachedCurrentWeatherState by cityInputViewModel.cachedCurrentWeatherState.collectAsState()
-        val currentWeatherState by currentWeatherViewModel.currentWeatherState.collectAsState()
+        val currentWeatherState by cityInputViewModel.currentWeatherState.collectAsState()
         val cityForecastState by forecastListViewModel.forecastState.collectAsState()
+        val shouldNavigateToCurrentWeatherScreen by
+        cityInputViewModel.shouldNavigateToCurrentWeatherScreen.collectAsState()
 
-        LaunchedEffect(currentWeatherState.weather) {
+        if (shouldNavigateToCurrentWeatherScreen == true) {
             if (currentWeatherState.weather != null) {
-                navController.navigate(CurrentWeatherScreenRout(currentWeatherState.weather!!.cityName))
                 forecastListViewModel.setCityName(currentWeatherState.weather!!.cityName)
                 forecastListViewModel.handleIntent(ForecastIntent.LoadForecast)
-                cityInputViewModel.updateCashedCityWeather()
+                navController.navigate(CurrentWeatherScreenRout)
+                cityInputViewModel.onNavigateToCurrentWeatherScreen()
             }
         }
-
 
         NavHost(
             navController = navController,
@@ -91,7 +86,9 @@ class MainActivity : ComponentActivity() {
                     },
                     onSearchClick = {
                         if (query.isNotEmpty()) {
-                            currentWeatherViewModel.getCityWeatherByName(query)
+                            cityInputViewModel.getCityWeatherByName(query, onSuccess = {
+                                cityInputViewModel.navigateToCurrentWeatherScreen()
+                            })
                         }
                     },
                     currentWeatherState = cachedCurrentWeatherState
@@ -107,10 +104,9 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    // Define the screen routes
     @Serializable
     object CityInputScreenRout
 
     @Serializable
-    data class CurrentWeatherScreenRout(val cityName: String)
+    object CurrentWeatherScreenRout
 }

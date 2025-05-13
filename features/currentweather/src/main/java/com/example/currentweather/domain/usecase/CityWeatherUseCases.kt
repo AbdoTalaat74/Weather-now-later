@@ -9,7 +9,6 @@ class CityWeatherUseCases @Inject() constructor(
 ) {
 
     suspend fun getCurrentWeather(cityName:String) = repository.getCurrentWeather(cityName = cityName)
-
     suspend fun insertCityWeather(dayCityWeather: DayCityWeather) = repository.insertCityWeather(dayCityWeather)
     suspend fun getCachedCityWeather() = repository.getCityWitherFromDataBase()
 
